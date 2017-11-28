@@ -7,12 +7,12 @@ project(HelloTensorflow Kotlin)
 cinterop(
         NAME tensorflow_kt
         DEF_FILE src/c_interop/tensorflow.def
-        COMPILER_OPTS "-I/Users/sergey/.konan/third-party/tensorflow/include"
+        COMPILER_OPTS "-I$ENV{HOME}/.konan/third-party/tensorflow/include"
 )
 
 konanc_executable(
         NAME HelloTensorflow
         SOURCES src/kotlin/
         LIBRARIES tensorflow_kt
-        LINKER_OPTS "-L/Users/sergey/.konan/third-party/tensorflow/lib -ltensorflow"
+        LINKER_OPTS "-L$ENV{HOME}/.konan/third-party/tensorflow/lib -ltensorflow"
 )
